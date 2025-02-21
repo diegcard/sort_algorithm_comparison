@@ -1,5 +1,10 @@
 # Sorting Algorithms Analysis
 
+### Author: [Diego Cardenas](github.com/diegcard)
+### Institution: Escuela Colombiana de Ingeniería Julio Garavito
+### Professor: [Rafael Niquefa](github.com/niquefa)
+### Signature: Algoritmo y Representación de Datos
+
 ## Introduction
 
 This project is a study of the most common sorting algorithms, their complexity and their performance. The algorithms studied are:
