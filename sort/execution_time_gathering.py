@@ -76,7 +76,7 @@ def take_time_for_algorithm(samples_array, sorting_approach):
 def measure_time(func: Callable, arr: List[int]) -> float:
     """Measure execution time of sorting function"""
     start_time = time.time()
-    func(arr.copy())  # Use copy to not modify original array
+    func(arr.copy())
     return time.time() - start_time
 
 
