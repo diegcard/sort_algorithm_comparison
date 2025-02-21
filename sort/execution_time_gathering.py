@@ -1,7 +1,9 @@
 import time
-from sort import algorithms
-from sort import constants
-from sort import data_generator
+import numpy as np
+import matplotlib.pyplot as plt
+from typing import Dict, List, Callable
+
+from sort import data_generator, algorithms, constants
 
 
 def take_execution_time(minimum_size, maximum_size, step, samples_by_size):
@@ -69,3 +71,56 @@ def take_time_for_algorithm(samples_array, sorting_approach):
         times.append(int(constants.TIME_MULTIPLIER * (time.time() - start_time)))
     times.sort()
     return times[len(times) // 2]
+
+
+def measure_time(func: Callable, arr: List[int]) -> float:
+    """Measure execution time of sorting function"""
+    start_time = time.time()
+    func(arr.copy())  # Use copy to not modify original array
+    return time.time() - start_time
+
+
+def generate_random_data(size: int) -> List[int]:
+    """Generate random test data of given size"""
+    return list(np.random.randint(1, 1000, size))
+
+
+def compare_and_plot_algorithms(sizes: List[int], algorithms: Dict[str, Callable], repetitions: int = 5):
+    """Compare algorithms and generate plots"""
+    results = {name: [] for name in algorithms}
+
+    for size in sizes:
+        print(f"Testing size {size}")
+        data = generate_random_data(size)
+        for name, func in algorithms.items():
+            times = []
+            for _ in range(repetitions):
+                execution_time = measure_time(func, data)
+                times.append(execution_time)
+            results[name].append(np.mean(times))
+
+    # Generate regular plot
+    plt.figure(figsize=(10, 6))
+    for name, times in results.items():
+        plt.plot(sizes, times, marker="o", label=name)
+
+    plt.xlabel("Array Size")
+    plt.ylabel("Time (seconds)")
+    plt.title("Sorting Algorithms Comparison")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig("comparison_regular.png")
+    plt.close()
+
+    # Generate logarithmic plot
+    plt.figure(figsize=(10, 6))
+    for name, times in results.items():
+        plt.loglog(sizes, times, marker="o", label=name)
+
+    plt.xlabel("Array Size (log)")
+    plt.ylabel("Time (seconds) (log)")
+    plt.title("Sorting Algorithms Comparison (Log Scale)")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig("comparison_log.png")
+    plt.close()

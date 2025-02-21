@@ -75,7 +75,19 @@ Shellsort, also known as Shell sort or Shell's method, is an in-place comparison
 * Best-case performance: O(n log n)
 * Average performance: depends on gap sequence
 
-Coverage
+## Graphs
+
+The graphs are generated using the matplotlib library. The graphs show the time it takes to sort an array of size n. The x-axis represents the size of the array and the y-axis represents the time in seconds.
+
+![comparision](images/comparison_log.png)
+
+![comparision](images/comparison_regular.png)
+
+## Conclusion
+
+The best algorithm for sorting is the merge sort algorithm. It has a time complexity of O(n log n) and is very efficient for large arrays. The worst algorithm is the bubble sort algorithm, which has a time complexity of O(n^2) and is very inefficient for large arrays.
+
+## Coverage
 
 Make sure you have "coverage" in your requirements.txt file and run pip install. Then run `coverage run -m unittest discover` and after that run `coverage report` to get the following table:
 
