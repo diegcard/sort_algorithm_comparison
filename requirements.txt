@@ -1,0 +1,5 @@
+numpy==1.24.3
+matplotlib==3.7.1
+seaborn==0.12.2
+coverage==7.2.3
+black==23.3.0
