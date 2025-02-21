@@ -5,10 +5,10 @@
 This project is a study of the most common sorting algorithms, their complexity and their performance. The algorithms studied are:
 
 * Bubble Sort
-* Selection Sort
-* Insertion Sort
-* Merge Sort
 * Quick Sort
+* Merge Sort
+* insertion Sort
+* Shell Sort
 
 # Running locally and testing
 
