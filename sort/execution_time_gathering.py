@@ -6,7 +6,17 @@ from sort import data_generator
 
 def take_execution_time(minimum_size, maximum_size, step, samples_by_size):
     """
-    Toma medidas de tiempo de ejecución para diferentes tamaños de entrada
+    Measures the execution time of different sorting algorithms for varying input sizes.
+
+    Args:
+        minimum_size (int): The minimum size of the input list.
+        maximum_size (int): The maximum size of the input list.
+        step (int): The increment size for the input list.
+        samples_by_size (int): The number of samples to generate for each input size.
+
+    Returns:
+        list: A table where each row contains the input size and the median execution times
+              for bubble sort, quick sort, and merge sort.
     """
     return_table = []
     for size in range(minimum_size, maximum_size + 1, step):
@@ -19,7 +29,14 @@ def take_execution_time(minimum_size, maximum_size, step, samples_by_size):
 
 def take_times(size, samples_by_size):
     """
-    Toma muestras de tiempo para cada algoritmo con un tamaño específico
+    Generates random lists and measures the execution time of different sorting algorithms.
+
+    Args:
+        size (int): The size of the input list.
+        samples_by_size (int): The number of samples to generate for each input size.
+
+    Returns:
+        list: A list containing the median execution times for bubble sort, quick sort, and merge sort.
     """
     samples = []
     for _ in range(samples_by_size):
@@ -29,12 +46,21 @@ def take_times(size, samples_by_size):
         take_time_for_algorithm(samples, algorithms.bubble_sort),
         take_time_for_algorithm(samples, algorithms.quick_sort),
         take_time_for_algorithm(samples, algorithms.merge_sort),
+        take_time_for_algorithm(samples, algorithms.insertion_sort),
+        take_time_for_algorithm(samples, algorithms.shell_sort),
     ]
 
 
 def take_time_for_algorithm(samples_array, sorting_approach):
     """
-    Retorna la mediana de los tiempos de ejecución para un enfoque de ordenamiento dado
+    Measures the execution time of a given sorting algorithm on a list of samples.
+
+    Args:
+        samples_array (list): A list of random lists to be sorted.
+        sorting_approach (function): The sorting algorithm to be used.
+
+    Returns:
+        int: The median execution time of the sorting algorithm in milliseconds.
     """
     times = []
     for sample in samples_array:

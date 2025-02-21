@@ -95,3 +95,59 @@ def merge(left: List[int], right: List[int]) -> List[int]:
     result.extend(left[i:])
     result.extend(right[j:])
     return result
+
+
+def insertion_sort(arr: List[int]) -> List[int]:
+    """Implements the Insertion Sort algorithm.
+    Time Complexity:
+    - Worst case: O(n^2) (when the array is reverse sorted)
+    - Best case: O(n) (when the array is already sorted)
+    - Average case: O(n^2)
+
+    Space Complexity: O(1) - In-place sorting algorithm
+
+    :param arr: List of integers to sort
+    :return: New sorted list
+    """
+    arr = arr.copy()
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+
+def shell_sort(arr: List[int]) -> List[int]:
+    """Implements the Shell Sort algorithm.
+    Time Complexity:
+    - Worst case: O(n^2) (depends on gap sequence)
+    - Best case: O(n log n)
+    - Average case: O(n log n)
+
+    Space Complexity: O(1) - In-place sorting algorithm
+
+    Shell sort is an optimization of insertion sort that allows the exchange of
+    items that are far apart. The idea is to arrange the list of elements so that
+    starting from anywhere, taking every hth element yields a sorted sequence.
+
+    :param arr: List of integers to sort
+    :return: New sorted list
+    """
+    arr = arr.copy()
+    n = len(arr)
+    gap = n // 2
+
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            arr[j] = temp
+        gap //= 2
+
+    return arr

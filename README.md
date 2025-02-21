@@ -54,19 +54,39 @@ An example of merge sort. First divide the list into the smallest unit (1 elemen
 * Best-case performance: O(n log n) typical, O(n) natural variant
 * Average performance: O(n log n)
 
+## Insertion Sort
+
+Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, insertion sort provides several advantages:
+
+* Worst-case performance: O(n^2)
+* Best-case performance: O(n)
+* Average performance: O(n^2)
+
+## Shell Sort
+
+Shellsort, also known as Shell sort or Shell's method, is an in-place comparison sort. It can be seen as either a generalization of sorting by exchange (bubble sort) or sorting by insertion (insertion sort). The method starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared. Starting with far apart elements, it can move some out-of-place elements into position faster than a simple nearest neighbor exchange.
+
+* Worst-case performance: O(n^2)
+* Best-case performance: O(n log n)
+* Average performance: depends on gap sequence
+
 Coverage
 
 Make sure you have "coverage" in your requirements.txt file and run pip install. Then run `coverage run -m unittest discover` and after that run `coverage report` to get the following table:
 
 ```
-Name                            Stmts   Miss  Cover
----------------------------------------------------
-test/__init__.py                    0      0   100%
-test/test_algorithms.py            24      1    96%
-test/test_data_generator.py        29      1    97%
-twistedsort/__init__.py             0      0   100%
-twistedsort/algorithms.py          27      3    89%
-twistedsort/constants.py            2      0   100%
-twistedsort/data_generator.py       9      1    89%
----------------------------------------------------
+Name                           Stmts   Miss  Cover   Missing
+------------------------------------------------------------
+sort\__init__.py                   0      0   100%
+sort\algorithms.py                38      0   100%
+sort\constants.py                  2      0   100%
+sort\data_generator.py             4      0   100%
+tests\__init__.py                  0      0   100%
+tests\test_algorithms.py          17      0   100%
+tests\test_data_generator.py      11      0   100%
+------------------------------------------------------------
 ```
+
+# Code beautify
+
+To beautify the code, you can use the command `black . -l 120` to format the code. Make sure you have black installed in your environment.
