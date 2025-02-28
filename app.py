@@ -24,10 +24,10 @@ def run_execution_time_test():
 
     table = take_execution_time(minimum_size, maximum_size, step, samples_by_size)
 
-    print("Size | Bubble Sort | Quick Sort | Merge Sort")
+    print("Size | Bubble Sort | Quick Sort | Merge Sort | Insertion Sort | Shell Sort")
     print("-" * 50)
     for row in table:
-        print(f"{row[0]:5d} | {row[1]:10d} | {row[2]:10d} | {row[3]:10d}")
+        print(f"{row[0]:5d} | {row[1]:10d} | {row[2]:10d} | {row[3]:10d} | {row[4]:13d} | {row[5]:9d}")
 
 
 if __name__ == "__main__":

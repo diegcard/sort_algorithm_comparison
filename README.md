@@ -75,6 +75,15 @@ Shellsort, also known as Shell sort or Shell's method, is an in-place comparison
 * Best-case performance: O(n log n)
 * Average performance: depends on gap sequence
 
+# Testing
+
+```
+Size | Bubble Sort | Quick Sort | Merge Sort | Insertion Sort | Shell Sort
+--------------------------------------------------
+10000 |     459961 |       1659 |       2487 |        204889 |      2598
+15000 |    1043589 |       2503 |       3706 |        468553 |      4003
+```
+
 ## Graphs
 
 The graphs are generated using the matplotlib library. The graphs show the time it takes to sort an array of size n. The x-axis represents the size of the array and the y-axis represents the time in seconds.
