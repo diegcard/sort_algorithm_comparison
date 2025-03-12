@@ -3,7 +3,7 @@ from sort.execution_time_gathering import compare_and_plot_algorithms, take_exec
 
 
 def run_comparison():
-    sizes = [100, 500, 1000, 2000, 3000, 4000, 5000]
+    sizes = [i for i in range(1000, 10000, 1000)]
 
     algorithms = {
         "Bubble Sort": bubble_sort,
@@ -17,19 +17,19 @@ def run_comparison():
 
 
 def run_execution_time_test():
-    minimum_size = 10000
+    minimum_size = 1000
     maximum_size = 15000
-    step = 5000
-    samples_by_size = 7
+    step = 1000
+    samples_by_size = 3
 
     table = take_execution_time(minimum_size, maximum_size, step, samples_by_size)
 
     print("Size | Bubble Sort | Quick Sort | Merge Sort | Insertion Sort | Shell Sort")
-    print("-" * 50)
+    print("-" * 75)
     for row in table:
         print(f"{row[0]:5d} | {row[1]:10d} | {row[2]:10d} | {row[3]:10d} | {row[4]:13d} | {row[5]:9d}")
 
 
 if __name__ == "__main__":
     run_comparison()
-    run_execution_time_test()
+    #run_execution_time_test()
