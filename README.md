@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/diegcard/sorting-algorithms?style=social)
+![GitHub stars](https://img.shields.io/github/stars/diegcard/sort_algorithm_comparison?style=social)
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
